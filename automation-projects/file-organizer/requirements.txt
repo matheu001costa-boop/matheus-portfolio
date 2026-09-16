@@ -1,0 +1,2 @@
+# Este projeto usa apenas a biblioteca padrão do Python (pathlib, shutil,
+# logging, argparse). Não há dependências externas a instalar.

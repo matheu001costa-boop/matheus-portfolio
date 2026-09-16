@@ -1,0 +1,21 @@
+# Necessário na Hostinger para as rotas do React Router (ex: /blog/algum-post)
+# funcionarem ao acessar a URL diretamente ou dar F5 na página.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Não reescreve arquivos ou pastas que realmente existem (assets, imagens etc.)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Tudo o mais cai no index.html, que o React Router assume a partir daí
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Cache básico para assets com hash no nome (gerados pelo Vite)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
