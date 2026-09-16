@@ -3,12 +3,8 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
-// Configuração pensada para hospedagem estática (Hostinger ou similar).
-// base: "./" gera caminhos relativos nos assets, então o build funciona
-// tanto na raiz do domínio quanto em uma subpasta, sem depender de
-// nenhuma variável de ambiente externa (PORT, BASE_PATH etc.).
 export default defineConfig({
-  base: "./",
+  base: "/matheus-portfolio/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
